@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Wall"))
         {
-            Instantiate(ExplosionFX, other.transform.position, ExplosionFX.transform.rotation);
-            Destroy(other.gameObject);
+            Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 }
