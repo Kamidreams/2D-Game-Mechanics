@@ -878,6 +878,8 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 4166315211215694290, guid: 29c85c2fe85ab8b4a86d39b34ff3c33b, type: 3}
   XRange: 4.4
   YRange: 2.5
+  EnemyCount: 0
+  WaveCount: 1
 --- !u!1 &1301352065
 GameObject:
   m_ObjectHideFlags: 0
