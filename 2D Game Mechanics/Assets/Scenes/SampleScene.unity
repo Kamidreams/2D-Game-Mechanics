@@ -746,6 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  PowerupStrength: 300
   ExplosionFX: {fileID: 7493906198211945577, guid: 9f8504098efa22f488f000ccbac1d658, type: 3}
   PowerupIndicator: {fileID: 118756392}
   HasPowerup: 0
