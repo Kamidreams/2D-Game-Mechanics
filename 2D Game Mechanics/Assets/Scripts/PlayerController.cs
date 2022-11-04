@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
     public GameObject PowerupIndicator;
     public bool HasPowerup = false;
     private Rigidbody2D _playerRb;
+    private SpriteRenderer _playerSR;
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
+        _playerSR = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -32,10 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Wall"))
         {
-            Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
-            //Destroy(this.gameObject);
-            gameObject.SetActive(false);
-            SceneManager.LoadScene(0);
+            StartCoroutine(GameOverRoutine());
         }
 
         if(other.gameObject.CompareTag("Powerup"))
@@ -64,5 +63,17 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5);
         PowerupIndicator.gameObject.SetActive(false);
         HasPowerup = false;
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+         Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
+            //Destroy(this.gameObject);
+            //gameObject.SetActive(false);
+            PowerupIndicator.gameObject.SetActive(false);
+            HasPowerup = false;
+            _playerSR.enabled = false; //disables player/turns off
+            yield return new WaitForSeconds(1.1f);
+            SceneManager.LoadScene(0);
     }
 }
